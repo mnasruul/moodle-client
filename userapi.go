@@ -9,7 +9,7 @@ import (
 )
 
 type UserAPI interface {
-	CreateUsers(ctx context.Context, param []UserRequest) ([]userResponse, error)
+	CreateUsers(ctx context.Context, param string) ([]userResponse, error)
 }
 
 type userAPI struct {
@@ -78,7 +78,7 @@ func (us UserRequests) EncodeValues(key string, v *url.Values) error {
 	return nil
 }
 
-func (u *userAPI) CreateUsers(ctx context.Context, param []UserRequest) ([]userResponse, error) {
+func (u *userAPI) CreateUsers(ctx context.Context, param string) ([]userResponse, error) {
 	res := []userResponse{}
 	err := u.callMoodleFunctionPost(ctx, &res, param, map[string]string{
 		"wsfunction": "core_user_create_users",
