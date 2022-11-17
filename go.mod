@@ -1,4 +1,4 @@
-module github.com/mnasruul/moodle-client
+module github.com/mnasruul/moodleClient
 
 go 1.19
 
