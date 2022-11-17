@@ -28,34 +28,34 @@ type userResponse struct {
 }
 
 type UserRequest struct {
-	Createpassword    int         `json:"createpassword"`
-	Username          string      `json:"username"`
-	Auth              string      `json:"auth"`
-	Password          string      `json:"password"`
-	Firstname         string      `json:"firstname"`
-	Lastname          string      `json:"lastname"`
-	Email             string      `json:"email"`
-	Maildisplay       int         `json:"maildisplay"`
-	City              string      `json:"city"`
-	Country           string      `json:"country"`
-	Timezone          string      `json:"timezone"`
-	Description       string      `json:"description"`
-	Firstnamephonetic string      `json:"firstnamephonetic"`
-	Lastnamephonetic  string      `json:"lastnamephonetic"`
-	Middlename        string      `json:"middlename"`
-	Alternatename     string      `json:"alternatename"`
-	Interests         string      `json:"interests"`
-	Idnumber          string      `json:"idnumber"`
-	Institution       string      `json:"institution"`
-	Department        string      `json:"department"`
-	Phone1            string      `json:"phone1"`
-	Phone2            string      `json:"phone2"`
-	Address           string      `json:"address"`
-	Lang              string      `json:"lang"`
-	Calendartype      string      `json:"calendartype"`
-	Theme             string      `json:"theme"`
-	Mailformat        int         `json:"mailformat"`
-	Customfields      interface{} `json:"customfields"`
+	Createpassword int    `json:"createpassword"`
+	Username       string `json:"username"`
+	Auth           string `json:"auth"`
+	Password       string `json:"password"`
+	Firstname      string `json:"firstname"`
+	Lastname       string `json:"lastname"`
+	Email          string `json:"email"`
+	// Maildisplay       int         `json:"maildisplay"`
+	// City              string      `json:"city"`
+	// Country           string      `json:"country"`
+	// Timezone          string      `json:"timezone"`
+	// Description       string      `json:"description"`
+	// Firstnamephonetic string      `json:"firstnamephonetic"`
+	// Lastnamephonetic  string      `json:"lastnamephonetic"`
+	// Middlename        string      `json:"middlename"`
+	// Alternatename     string      `json:"alternatename"`
+	// Interests         string      `json:"interests"`
+	// Idnumber          string      `json:"idnumber"`
+	// Institution       string      `json:"institution"`
+	// Department        string      `json:"department"`
+	// Phone1            string      `json:"phone1"`
+	// Phone2            string      `json:"phone2"`
+	// Address           string      `json:"address"`
+	// Lang              string      `json:"lang"`
+	// Calendartype      string      `json:"calendartype"`
+	// Theme             string      `json:"theme"`
+	// Mailformat        int         `json:"mailformat"`
+	// Customfields      interface{} `json:"customfields"`
 }
 type UserRequests []*UserRequest
 
