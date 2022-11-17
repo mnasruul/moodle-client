@@ -10,7 +10,7 @@ import (
 	"net/url"
 	"path"
 
-	"github.com/mnasruul/moodle-client/pkg/urlutil"
+	"github.com/mnasruul/moodleClient/pkg/urlutil"
 )
 
 type apiClient struct {

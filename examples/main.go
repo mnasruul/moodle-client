@@ -4,6 +4,8 @@ import (
 	"context"
 	"fmt"
 	"net/url"
+
+	"github.com/mnasruul/moodleClient"
 )
 
 func main() {
