@@ -73,7 +73,7 @@ func (us UserRequests) EncodeValues(key string, v *url.Values) error {
 		for subKey, subVal := range res {
 			_ = subVal
 			val := res.Get(subKey)
-			field, _ := reflect.TypeOf(&UserRequests{}).Elem().FieldByName(subKey)
+			field, _ := reflect.TypeOf(u).Elem().FieldByName(subKey)
 			if val != "<nil>" {
 				v.Set(fmt.Sprintf("%s[%d][%s]", key, i, urlutil.GetStructTag(field, "json")), res.Get(subKey))
 			}
