@@ -4,8 +4,10 @@ import (
 	"context"
 	"fmt"
 	"net/url"
+	"reflect"
 
 	"github.com/google/go-querystring/query"
+	"github.com/mnasruul/moodleClient/pkg/urlutil"
 )
 
 type UserAPI interface {
@@ -62,6 +64,7 @@ type Options struct {
 }
 
 func (us UserRequests) EncodeValues(key string, v *url.Values) error {
+
 	for i, u := range us {
 		res, err := query.Values(u)
 		if err != nil {
@@ -70,8 +73,9 @@ func (us UserRequests) EncodeValues(key string, v *url.Values) error {
 		for subKey, subVal := range res {
 			_ = subVal
 			val := res.Get(subKey)
+			field, _ := reflect.TypeOf(&UserRequests{}).Elem().FieldByName(subKey)
 			if val != "<nil>" {
-				v.Set(fmt.Sprintf("%s[%d][%s]", key, i, subKey), res.Get(subKey))
+				v.Set(fmt.Sprintf("%s[%d][%s]", key, i, urlutil.GetStructTag(field, subKey)), res.Get(subKey))
 			}
 		}
 	}

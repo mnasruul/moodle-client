@@ -1,6 +1,9 @@
 package urlutil
 
-import "net/url"
+import (
+	"net/url"
+	"reflect"
+)
 
 func Copy(u *url.URL) *url.URL {
 	copied := *u
@@ -21,4 +24,8 @@ func CopyWithQueries(original *url.URL, queries ...map[string]string) *url.URL {
 	u := Copy(original)
 	SetQueries(u, queries...)
 	return u
+}
+
+func GetStructTag(f reflect.StructField, tagName string) string {
+	return string(f.Tag.Get(tagName))
 }
