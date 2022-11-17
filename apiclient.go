@@ -97,7 +97,7 @@ func (a *apiClient) postAndUnmarshal(ctx context.Context, u *url.URL, to interfa
 	if err != nil {
 		return err
 	}
-	req, err := http.NewRequestWithContext(ctx, "POST", u.String(), bytes.NewReader(newBody))
+	req, err := http.NewRequestWithContext(ctx, "POST", u.String()+"&"+body.(string), bytes.NewReader(newBody))
 	if err != nil {
 		return err
 	}
