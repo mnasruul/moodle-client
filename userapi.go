@@ -1,6 +1,12 @@
 package moodleClient
 
-import "context"
+import (
+	"context"
+	"fmt"
+	"net/url"
+
+	"github.com/google/go-querystring/query"
+)
 
 type UserAPI interface {
 	CreateUsers(ctx context.Context, param []UserRequest) ([]userResponse, error)
@@ -48,6 +54,25 @@ type UserRequest struct {
 	Theme             string      `json:"theme"`
 	Mailformat        int         `json:"mailformat"`
 	Customfields      interface{} `json:"customfields"`
+}
+type UserRequests []*UserRequest
+
+type Options struct {
+	Users UserRequests `url:"users"`
+}
+
+func (us UserRequests) EncodeValues(key string, v *url.Values) error {
+	for i, u := range us {
+		res, err := query.Values(u)
+		if err != nil {
+			return err
+		}
+		for subKey, subVal := range res {
+			_ = subVal
+			v.Set(fmt.Sprintf("%s[%d][%s]", key, i, subKey), res.Get(subKey))
+		}
+	}
+	return nil
 }
 
 func (u *userAPI) CreateUsers(ctx context.Context, param []UserRequest) ([]userResponse, error) {
