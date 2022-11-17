@@ -31,7 +31,7 @@ type UserRequest struct {
 	Createpassword    int         `json:"createpassword"`
 	Username          string      `json:"username"`
 	Auth              string      `json:"auth"`
-	Password          string      `json:"passowrd"`
+	Password          string      `json:"password"`
 	Firstname         string      `json:"firstname"`
 	Lastname          string      `json:"lastname"`
 	Email             string      `json:"email"`
