@@ -1,9 +1,8 @@
 package moodleClient
 
 import (
-	"bytes"
 	"context"
-	"encoding/json"
+	"fmt"
 	"io/ioutil"
 	"log"
 	"net/http"
@@ -93,11 +92,8 @@ func (a *apiClient) callMoodleFunctionPost(ctx context.Context, to interface{}, 
 }
 
 func (a *apiClient) postAndUnmarshal(ctx context.Context, u *url.URL, to interface{}, body interface{}) error {
-	newBody, err := json.Marshal(body)
-	if err != nil {
-		return err
-	}
-	req, err := http.NewRequestWithContext(ctx, "POST", u.String()+"&"+body.(string), bytes.NewReader(newBody))
+
+	req, err := http.NewRequestWithContext(ctx, "POST", u.String()+"&"+fmt.Sprintf("%s", body), nil)
 	if err != nil {
 		return err
 	}

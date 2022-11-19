@@ -6,10 +6,13 @@ import (
 
 type CourseClassification string
 
+type CourseFieldType string
+
 const (
 	CourseClassificationPast       CourseClassification = "past"
 	CourseClassificationInProgress CourseClassification = "inprogress"
 	CourseClassificationFuture     CourseClassification = "future"
+	CourseFieldCategory            CourseFieldType      = "category"
 )
 
 type Course struct {

@@ -10,14 +10,14 @@ import (
 
 func main() {
 	ctx := context.Background()
-	serviceURL, err := url.Parse("https://learning.pt-ssss.com")
+	serviceURL, err := url.Parse("https://xx.xxx.com")
 	if err != nil {
 		panic(err)
 	}
 	Client, err := moodleClient.NewClient(
 		ctx,
 		serviceURL,
-		"a5cf08fdc31ce46561ef43d3567afd3b",
+		"x",
 		moodleClient.WithDebugEnabled(),
 	)
 	if err != nil {
